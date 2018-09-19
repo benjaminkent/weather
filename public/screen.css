@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,900');
 
 html {
   height: 100%;
@@ -9,11 +9,17 @@ body {
   min-height: 100%;
   font: 16px / 1 sans-serif;
   font-family: 'Raleway', sans-serif;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #2d3319;
 }
 
 h1 {
   text-align: center;
+  margin-top: 50px;
+  color: #cacfd6;
+  font-size: 3rem;
 }
 
 div {
@@ -23,9 +29,58 @@ div {
 
 button {
   font-family: 'Raleway', sans-serif;
+  height: 30px;
+  padding: 0 30px;
+  font-size: 1rem;
+  outline-color: #f7ff58;
+  margin-left: 5px;
+  background-color: #a6352d;
+  color: #cacfd6;
+  border: 1px solid #cacfd6;
+}
+
+input {
+  height: 26px;
+  outline: none;
+  padding: 0 10px;
+  font-size: 1rem;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 150px;
+}
+
+li {
+  font-size: 2.2rem;
+  margin: 5px 0;
+  color: #f7ff58;
+  font-weight: 900;
+  text-shadow: 
+    -2px -2px 0 #2d3319,
+    2px -2px 0 #2d3319,
+    -2px 2px 0 #2d3319,
+    2px 2px 0 #2d3319;
+}
+
+main {
+  background-image: url(/images/batman.gif);
+  border-radius: 10px;
+  background-size: cover;
+  height: 700px;
+  width: 1000px;
+  display: flex;
+  margin-top: 20px;
 
 }
 
- ul {
-  list-style-type: none;
+div.input-button {
+  padding: 0;
+}
+
+.input-button {
+  padding-top: 50px;
 }
