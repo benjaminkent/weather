@@ -3,12 +3,23 @@ class WeatherList {
     this.mainWeather = document.querySelector(weatherSelector)
   }
 
-  addWeather(message) {
+  addWeather(information) {
     const weatherInfo = document.createElement('li')
-    weatherInfo.textContent = message
+    weatherInfo.textContent = information
     this.mainWeather.appendChild(weatherInfo)
   }
-
+  //  weatherAttributes.weather.forEach(weatherCondition => {
+  //    let weatherLiCondition = document.createElement('li')
+  //    weatherLiCondition.textContent = weatherCondition.main
+  //    weatherOnPage.appendChild(weatherLiCondition)
+  weatherArray(weather) {
+    weather.forEach(weatherCondition => {
+      const weatherInfo = document.createElement('li')
+      weatherInfo.textContent = 'Currently: ' + weatherCondition.main
+      console.log(weatherCondition)
+      this.mainWeather.appendChild(weatherInfo)
+    })
+  }
 }
 
 const goForWeather = () => {
@@ -34,14 +45,18 @@ const goForWeather = () => {
     })
     .then(weatherAttributes => {
       const weatherList = new WeatherList('.weather-info')
-      weatherList.addWeather(weatherAttributes.name)
-      weatherList.addWeather(weatherAttributes.main.temp)
-
+      weatherList.addWeather('City: ' + weatherAttributes.name)
+      weatherList.addWeather('Temp: ' + weatherAttributes.main.temp + ' ℉')
+      weatherList.weatherArray(weatherAttributes.weather)
+      weatherList.addWeather('Humidity: ' + weatherAttributes.main.humidity + '%')
+      weatherList.addWeather('High: ' + weatherAttributes.main.temp_max + ' ℉')
+      weatherList.addWeather('Low: ' + weatherAttributes.main.temp_min + ' ℉')
     }
     )
 }
 
 const main = () => {
+  document.querySelector('.city-input').addEventListener('change', goForWeather)
   document.querySelector('.go-button').addEventListener('click', goForWeather)
 }
 
@@ -69,3 +84,5 @@ document.addEventListener('DOMContentLoaded', main)
       //    weatherOnPage.appendChild(weatherLiCondition)
       //  })
       //}
+
+
