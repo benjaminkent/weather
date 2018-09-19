@@ -1,4 +1,20 @@
-class WeatherList {
+
+// class is forecast
+// constructor is json
+
+
+// class Forecast {
+//   constructor(json) {
+//     this.mainForecast = json
+//   }
+//   addForecast(information) {
+//     const forecast = document.createElement('li')
+//     forecast.textContent = information
+//     this.mainForecast.appendChild(forecast)
+//   }
+// }
+
+class WeatherAPI {
   constructor(weatherSelector) {
     this.mainWeather = document.querySelector(weatherSelector)
   }
@@ -8,10 +24,7 @@ class WeatherList {
     weatherInfo.textContent = information
     this.mainWeather.appendChild(weatherInfo)
   }
-  //  weatherAttributes.weather.forEach(weatherCondition => {
-  //    let weatherLiCondition = document.createElement('li')
-  //    weatherLiCondition.textContent = weatherCondition.main
-  //    weatherOnPage.appendChild(weatherLiCondition)
+
   weatherArray(weather) {
     weather.forEach(weatherCondition => {
       const weatherInfo = document.createElement('li')
@@ -44,7 +57,7 @@ const goForWeather = () => {
       return response.json()
     })
     .then(weatherAttributes => {
-      const weatherList = new WeatherList('.weather-info')
+      const weatherList = new WeatherAPI('.weather-info')
       weatherList.addWeather('City: ' + weatherAttributes.name)
       weatherList.addWeather('Temp: ' + weatherAttributes.main.temp + ' ℉')
       weatherList.weatherArray(weatherAttributes.weather)
@@ -53,6 +66,20 @@ const goForWeather = () => {
       weatherList.addWeather('Low: ' + weatherAttributes.main.temp_min + ' ℉')
     }
     )
+
+  // let forecastURL
+  // if (isNaN(parseInt(citySearch))) {
+  //   forecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${citySearch}&units=imperial&appid=ab775780f3f23d518c06143e1db7c763`
+  // } else {
+  //   forecastURL = `https://api.openweathermap.org/data/2.5/forecast?zip=${citySearch}&units=imperial&appid=ab775780f3f23d518c06143e1db7c763`
+  // }
+  // fetch(forecastURL)
+  //   .then(response => {
+  //     return response.json()
+  //   })
+  //   .then(
+  // 
+  // )
 }
 
 const main = () => {
