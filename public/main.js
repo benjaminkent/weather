@@ -1,3 +1,5 @@
+
+
 const goForWeather = () => {
   let mainContainer = document.querySelector('ul.reset')
   while (mainContainer.firstChild) {
@@ -20,7 +22,6 @@ const goForWeather = () => {
       return response.json()
     })
     .then(weatherAttributes => {
-      console.log(weatherAttributes)
       let weatherOnPage = document.querySelector('.weather-info')
 
       // If there is no such city
