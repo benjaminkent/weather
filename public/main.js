@@ -1,23 +1,3 @@
-// put search box on the page === done
-// put button on page === done
-// make sure button clicks === done
-// click button and checks input (city) === done
-// click button and fetch data for weather === done
-// return information about weather temp === done
-// create li element === done
-// append child ul element to add info to the DOM === done
-// repeat steps for more information
-// get more information including current conditions
-// put on the DOM
-// const resetTheCity = () => {
-//   let topList = document.querySelector('.reset')
-//   let listItem = document.querySelector('.reset-item')
-//   let remove = () => {
-//     topList.removeChild(listItem)
-//   }
-//   remove()
-// }
-
 const goForWeather = () => {
   let mainContainer = document.querySelector('ul.reset')
   while (mainContainer.firstChild) {
@@ -32,6 +12,8 @@ const goForWeather = () => {
   } else {
     url = `https://api.openweathermap.org/data/2.5/weather?zip=${citySearch}&units=imperial&appid=ab775780f3f23d518c06143e1db7c763`
   }
+  // let notNumber = isNaN(parseInt(citySearch))
+  // let url = `https://api.openweathermap.org/data/2.5/weather?${notNumber ? 'q' : 'zip'}=${citySearch}&units=imperial&appid=ab775780f3f23d518c06143e1db7c763`
 
   fetch(url)
     .then(response => {
@@ -44,7 +26,7 @@ const goForWeather = () => {
       // If there is no such city
       if (weatherAttributes.cod === '404') {
         let error = document.createElement('li')
-        error.textContent = 'Ooops, no weather'
+        error.textContent = 'Not a place. Batman laughs at you!'
         weatherOnPage.appendChild(error)
       } else {
         let weatherLiName = document.createElement('li')
@@ -66,10 +48,7 @@ const goForWeather = () => {
 }
 
 const main = () => {
-
   document.querySelector('.go-button').addEventListener('click', goForWeather)
 }
 
 document.addEventListener('DOMContentLoaded', main)
-
-
