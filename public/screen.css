@@ -74,7 +74,6 @@ main {
   width: 75%;
   display: flex;
   margin-top: 20px;
-
 }
 
 div.input-button {
@@ -83,4 +82,33 @@ div.input-button {
 
 .input-button {
   padding-top: 50px;
+}
+
+@media (max-width: 700px) {
+  .input-button {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1 {
+    margin-top: 10px;
+  }
+
+  input {
+    margin-bottom: 5px;
+  }
+
+  li {
+    font-size: 1.2rem;
+  }
+
+  main {
+    background-image: url(/images/batman.gif);
+    border-radius: 10px;
+    background-size: cover;
+    height: 400px;
+    width: 100%;
+    display: flex;
+    margin-top: 20px;
+  }
 }
