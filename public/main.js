@@ -26,14 +26,27 @@ const goForWeather = () => {
   let searchInput = document.querySelector('.city-input')
   let citySearch = searchInput.value
 
-  if (citySearch === Number.NaN) {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${citySearch}&units=imperial&appid=ab775780f3f23d518c06143e1db7c763`)
-      .then(response => {
-        return response.json()
-      })
-      .then(weatherAttributes => {
-        let weatherOnPage = document.querySelector('.weather-info')
+  let url
+  if (isNaN(parseInt(citySearch))) {
+    url = `https://api.openweathermap.org/data/2.5/weather?q=${citySearch}&units=imperial&appid=ab775780f3f23d518c06143e1db7c763`
+  } else {
+    url = `https://api.openweathermap.org/data/2.5/weather?zip=${citySearch}&units=imperial&appid=ab775780f3f23d518c06143e1db7c763`
+  }
 
+  fetch(url)
+    .then(response => {
+      return response.json()
+    })
+    .then(weatherAttributes => {
+      console.log(weatherAttributes)
+      let weatherOnPage = document.querySelector('.weather-info')
+
+      // If there is no such city
+      if (weatherAttributes.cod === '404') {
+        let error = document.createElement('li')
+        error.textContent = 'Ooops, no weather'
+        weatherOnPage.appendChild(error)
+      } else {
         let weatherLiName = document.createElement('li')
         weatherLiName.textContent = weatherAttributes.name
         weatherOnPage.appendChild(weatherLiName)
@@ -48,39 +61,13 @@ const goForWeather = () => {
           weatherOnPage.appendChild(weatherLiCondition)
         })
       }
-      )
-  }
-
-  if (citySearch !== Number.NaN) {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${citySearch}&units=imperial&appid=ab775780f3f23d518c06143e1db7c763`)
-      .then(response => {
-        return response.json()
-      })
-      .then(weatherAttributes => {
-        let weatherOnPage = document.querySelector('.weather-info')
-
-        let weatherLiName = document.createElement('li')
-        weatherLiName.textContent = weatherAttributes.name
-        weatherOnPage.appendChild(weatherLiName)
-
-        let weatherLiTemp = document.createElement('li')
-        weatherLiTemp.textContent = `${weatherAttributes.main.temp} Fahrenheit`
-        weatherOnPage.appendChild(weatherLiTemp)
-
-        weatherAttributes.weather.forEach(weatherCondition => {
-          let weatherLiCondition = document.createElement('li')
-          weatherLiCondition.textContent = weatherCondition.main
-          weatherOnPage.appendChild(weatherLiCondition)
-        })
-      }
-      )
-  }
+    }
+    )
 }
 
 const main = () => {
 
   document.querySelector('.go-button').addEventListener('click', goForWeather)
-
 }
 
 document.addEventListener('DOMContentLoaded', main)

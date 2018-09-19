@@ -50,12 +50,12 @@ ul {
   list-style-type: none;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: 150px;
+  align-items: left;
+  margin-top: 100px;
 }
 
 li {
-  font-size: 2.2rem;
+  font-size: 2rem;
   margin: 5px 0;
   color: #f7ff58;
   font-weight: 900;
@@ -70,7 +70,7 @@ main {
   background-image: url(/images/batman.gif);
   border-radius: 10px;
   background-size: cover;
-  height: 700px;
+  height: 600px;
   width: 75%;
   display: flex;
   margin-top: 20px;
