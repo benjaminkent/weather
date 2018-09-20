@@ -1,17 +1,23 @@
 
 // class is forecast
 // constructor is json
-
-
-// class Forecast {
-//   constructor(json) {
-//     this.mainForecast = json
+// class ForecastAPI {
+//   constructor(forecastSelector) {
+//     this.mainForecast = document.querySelector(forecastSelector)
 //   }
+// 
 //   addForecast(information) {
-//     const forecast = document.createElement('li')
-//     forecast.textContent = information
-//     this.mainForecast.appendChild(forecast)
+//     const forecastInfo = document.createElement('li')
+//     forecastInfo.textContent = information
+//     this.mainForecast.appendChild(forecastInfo)
 //   }
+// }
+// 
+// class ForecastJson {
+//   constructor(json) {
+//     this.json = json
+//   }
+// 
 // }
 
 class WeatherAPI {
@@ -67,19 +73,22 @@ const goForWeather = () => {
     }
     )
 
-  // let forecastURL
-  // if (isNaN(parseInt(citySearch))) {
-  //   forecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${citySearch}&units=imperial&appid=ab775780f3f23d518c06143e1db7c763`
-  // } else {
-  //   forecastURL = `https://api.openweathermap.org/data/2.5/forecast?zip=${citySearch}&units=imperial&appid=ab775780f3f23d518c06143e1db7c763`
-  // }
-  // fetch(forecastURL)
-  //   .then(response => {
-  //     return response.json()
-  //   })
-  //   .then(
-  // 
-  // )
+  //  let forecastURL
+  //  if (isNaN(parseInt(citySearch))) {
+  //    forecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${citySearch}&units=imperial&appid=ab775780f3f23d518c06143e1db7c763`
+  //  } else {
+  //    forecastURL = `https://api.openweathermap.org/data/2.5/forecast?zip=${citySearch}&units=imperial&appid=ab775780f3f23d518c06143e1db7c763`
+  //  }
+  //  fetch(forecastURL)
+  //    .then(response => {
+  //      return response.json()
+  //    })
+  //    .then(
+  //      json => {
+  //        let updateForecast = new Forecast(json)
+  //
+  //      }
+  //    )
 }
 
 const main = () => {
