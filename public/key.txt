@@ -2,3 +2,11 @@ ab775780f3f23d518c06143e1db7c763
 
 
 let fahrenheit = '&units=imperial'
+
+iHaveTwoClasses (json) {
+    const weatherUpdate = new WheatherUpdate('.update')
+    weatherUpdate.updateWeather("Temp(F): ", Math.floor(json.main.temp), "°")
+    weatherUpdate.updateWeather("High(F): ", Math.floor(json.main.temp_max), "°")
+    weatherUpdate.updateWeather("Low(F): ", Math.floor(json.main.temp_min), "°")
+    weatherUpdate.updateWeather("Humidity: ", json.main.humidity, "%")
+  }
