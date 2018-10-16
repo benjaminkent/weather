@@ -1,25 +1,3 @@
-
-// class is forecast
-// constructor is json
-// class ForecastAPI {
-//   constructor(forecastSelector) {
-//     this.mainForecast = document.querySelector(forecastSelector)
-//   }
-// 
-//   addForecast(information) {
-//     const forecastInfo = document.createElement('li')
-//     forecastInfo.textContent = information
-//     this.mainForecast.appendChild(forecastInfo)
-//   }
-// }
-// 
-// class ForecastJson {
-//   constructor(json) {
-//     this.json = json
-//   }
-// 
-// }
-
 class WeatherAPI {
   constructor(weatherSelector) {
     this.mainWeather = document.querySelector(weatherSelector)
@@ -67,28 +45,12 @@ const goForWeather = () => {
       weatherList.addWeather('City: ' + weatherAttributes.name)
       weatherList.addWeather('Temp: ' + weatherAttributes.main.temp + ' ℉')
       weatherList.weatherArray(weatherAttributes.weather)
-      weatherList.addWeather('Humidity: ' + weatherAttributes.main.humidity + '%')
+      weatherList.addWeather(
+        'Humidity: ' + weatherAttributes.main.humidity + '%'
+      )
       weatherList.addWeather('High: ' + weatherAttributes.main.temp_max + ' ℉')
       weatherList.addWeather('Low: ' + weatherAttributes.main.temp_min + ' ℉')
-    }
-    )
-
-  //  let forecastURL
-  //  if (isNaN(parseInt(citySearch))) {
-  //    forecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${citySearch}&units=imperial&appid=ab775780f3f23d518c06143e1db7c763`
-  //  } else {
-  //    forecastURL = `https://api.openweathermap.org/data/2.5/forecast?zip=${citySearch}&units=imperial&appid=ab775780f3f23d518c06143e1db7c763`
-  //  }
-  //  fetch(forecastURL)
-  //    .then(response => {
-  //      return response.json()
-  //    })
-  //    .then(
-  //      json => {
-  //        let updateForecast = new Forecast(json)
-  //
-  //      }
-  //    )
+    })
 }
 
 const main = () => {
@@ -97,28 +59,3 @@ const main = () => {
 }
 
 document.addEventListener('DOMContentLoaded', main)
-
-      //let weatherOnPage = document.querySelector('.weather-info')
-//
-      //// If there is no such city
-      //if (weatherAttributes.cod === '404') {
-      //  let error = document.createElement('li')
-      //  error.textContent = 'Not a place. Batman laughs at you!'
-      //  weatherOnPage.appendChild(error)
-      //} else {
-      //  let weatherLiName = document.createElement('li')
-      //  weatherLiName.textContent = weatherAttributes.name
-      //  weatherOnPage.appendChild(weatherLiName)
-//
-      //  let weatherLiTemp = document.createElement('li')
-      //  weatherLiTemp.textContent = `${weatherAttributes.main.temp} Fahrenheit`
-      //  weatherOnPage.appendChild(weatherLiTemp)
-//
-      //  weatherAttributes.weather.forEach(weatherCondition => {
-      //    let weatherLiCondition = document.createElement('li')
-      //    weatherLiCondition.textContent = weatherCondition.main
-      //    weatherOnPage.appendChild(weatherLiCondition)
-      //  })
-      //}
-
-
